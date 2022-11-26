@@ -4,18 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+const fName = "Reap3r";
+const lName = "Chaos";
+const luckyNum = 7;
+const date = new Date();
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>
   <div>
-    <h1>This is a header.</h1>
-    <ul>
-      <li>element 1</li>
-      <li>element 2</li>
-      <li>element 3</li>
-    </ul>
+    <p>Created by {fName}.</p>
+    <p>Copyright {date.getFullYear()}.</p>
   </div>
 );
 
