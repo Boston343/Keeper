@@ -3,21 +3,38 @@ import Header from "./Header";
 import CreateArea from "./CreateArea";
 import Note from "./Note";
 import Footer from "./Footer";
-import notes from "../notes";
-
-function createNote(note) {
-  return <Note key={note.key} title={note.title} content={note.content} />;
-}
 
 function App() {
   const [notes, setNotes] = React.useState([]);
 
+  // add a note to our array and therefore our app
+  function addNote(newNote) {
+    setNotes((prevNotes) => {
+      return [...prevNotes, newNote];
+    });
+  }
+
+  // Delete a note using its key value
+  function deleteNote(id) {
+    console.log("delete note with id: " + id);
+  }
+
   return (
     <div>
       <Header />
-      <CreateArea />
-      <Note key={0} title="Note title" content="Note content" />
-      {/* {notes.map(createNote)} */}
+      <CreateArea onAdd={addNote} />
+
+      {notes.map((note, index) => {
+        return (
+          <Note
+            key={index}
+            id={index}
+            title={note.title}
+            content={note.content}
+            onDelete={deleteNote}
+          />
+        );
+      })}
 
       <Footer />
     </div>
