@@ -7,6 +7,7 @@ import Footer from "./Footer";
 function App() {
   const [notes, setNotes] = React.useState([]);
 
+  // ------------------------------------------------------------------------------
   // add a note to our array and therefore our app
   function addNote(newNote) {
     setNotes((prevNotes) => {
@@ -14,9 +15,9 @@ function App() {
     });
   }
 
+  // ------------------------------------------------------------------------------
   // Delete a note using its key value
   function deleteNote(id) {
-    // console.log("delete note with id: " + id);
     setNotes((prevNotes) => {
       return prevNotes.filter((note, index) => {
         return index !== id; // return all notes
@@ -24,6 +25,7 @@ function App() {
     });
   }
 
+  // ------------------------------------------------------------------------------
   return (
     <div>
       <Header />

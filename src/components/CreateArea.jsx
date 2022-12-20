@@ -6,6 +6,7 @@ function CreateArea(props) {
     content: "",
   });
 
+  // ------------------------------------------------------------------------------
   // only update the value that needs updated, otherwise keep using existing value
   function handleChange(event) {
     const { value, name } = event.target;
@@ -25,6 +26,7 @@ function CreateArea(props) {
     });
   }
 
+  // ------------------------------------------------------------------------------
   // handling the "Add" button press to add a new note
   function handleAdd(event) {
     // add function is within "App.jsx"
@@ -37,6 +39,7 @@ function CreateArea(props) {
     event.preventDefault();
   }
 
+  // ------------------------------------------------------------------------------
   return (
     <div>
       <form onSubmit={handleAdd}>
