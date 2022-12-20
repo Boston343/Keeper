@@ -16,7 +16,12 @@ function App() {
 
   // Delete a note using its key value
   function deleteNote(id) {
-    console.log("delete note with id: " + id);
+    // console.log("delete note with id: " + id);
+    setNotes((prevNotes) => {
+      return prevNotes.filter((note, index) => {
+        return index !== id; // return all notes
+      });
+    });
   }
 
   return (
