@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Keeper
+
+Simple note taking application developed while learning React. You can view the website here: [https://keeper-reap3r.netlify.app/](https://keeper-reap3r.netlify.app/) 
+
+Currently this forget any notes you make upon refreshing the website. Later I might implement note storage within MongoDB, using a login. 
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
