@@ -1,10 +1,18 @@
 import React from "react";
+import Fab from "@mui/material/Fab";
+import Zoom from "@mui/material/Zoom";
+import AddIcon from "@mui/icons-material/Add";
 
 function CreateArea(props) {
   const [newNote, setNewNote] = React.useState({
     title: "",
     content: "",
   });
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
+  function expand() {
+    setIsExpanded(true);
+  }
 
   // ------------------------------------------------------------------------------
   // only update the value that needs updated, otherwise keep using existing value
@@ -41,6 +49,9 @@ function CreateArea(props) {
     // reset text data to nothing
     setNewNote({ title: "", content: "" });
 
+    // make the new note section small again
+    setIsExpanded(false);
+
     // prevent page refreshing
     event.preventDefault();
   }
@@ -49,20 +60,27 @@ function CreateArea(props) {
   return (
     <div>
       <form onSubmit={handleAdd} className="create-note">
-        <input
-          onChange={handleChange}
-          name="title"
-          placeholder="Title"
-          value={newNote.title}
-        />
+        {isExpanded && (
+          <input
+            onChange={handleChange}
+            name="title"
+            placeholder="Title"
+            value={newNote.title}
+          />
+        )}
         <textarea
+          onClick={expand}
           onChange={handleChange}
           name="content"
           placeholder="Take a note..."
-          rows="3"
+          rows={isExpanded ? "3" : "1"}
           value={newNote.content}
         />
-        <button type="submit">Add</button>
+        <Zoom in={isExpanded}>
+          <Fab type="submit" size="small" color="primary" aria-label="add">
+            <AddIcon />
+          </Fab>
+        </Zoom>
       </form>
     </div>
   );
