@@ -12,17 +12,23 @@ function CreateArea(props) {
     const { value, name } = event.target;
 
     setNewNote((prevValue) => {
-      if (name === "title") {
-        return {
-          title: value,
-          content: prevValue.content,
-        };
-      } else if (name === "content") {
-        return {
-          title: prevValue.title,
-          content: value,
-        };
-      }
+      // if (name === "title") {
+      //   return {
+      //     title: value,
+      //     content: prevValue.content,
+      //   };
+      // } else if (name === "content") {
+      //   return {
+      //     title: prevValue.title,
+      //     content: value,
+      //   };
+      // }
+
+      // This is a shorter version of the above
+      return {
+        ...prevValue,
+        [name]: value,
+      };
     });
   }
 
@@ -42,7 +48,7 @@ function CreateArea(props) {
   // ------------------------------------------------------------------------------
   return (
     <div>
-      <form onSubmit={handleAdd}>
+      <form onSubmit={handleAdd} className="create-note">
         <input
           onChange={handleChange}
           name="title"
